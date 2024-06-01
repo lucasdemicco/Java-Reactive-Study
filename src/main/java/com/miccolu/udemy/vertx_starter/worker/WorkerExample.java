@@ -19,6 +19,10 @@ public class WorkerExample extends AbstractVerticle {
   public void start(Promise<Void> startPromise) throws Exception {
     LOG.debug("Starting Worker application: " + getClass().getName());
     startPromise.complete();
+    executeBlockingAsync();
+  }
+
+  private void executeBlockingAsync() {
     vertx.executeBlocking(event -> {
       LOG.debug("Executing blocking code");
         try {
