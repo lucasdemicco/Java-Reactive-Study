@@ -23,12 +23,12 @@ public class WorkerExample extends AbstractVerticle {
       LOG.debug("Executing blocking code");
         try {
             Thread.sleep(5000);
-            event.complete();
+            event.complete(); //Executing Thread 0
         } catch (InterruptedException e) {
             LOG.error("Failed: %s", e);
             event.fail(e);
         }
-    }, asyncResult -> {
+    }, asyncResult -> { //Get result to execute Thread 0
       if(asyncResult.succeeded()){
         LOG.debug("Blocking call Done.");
       }else{
