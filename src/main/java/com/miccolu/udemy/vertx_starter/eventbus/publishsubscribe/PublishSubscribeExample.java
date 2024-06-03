@@ -5,6 +5,7 @@ import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
+import io.vertx.core.json.JsonObject;
 
 public class PublishSubscribeExample {
   public static void main(String[] args) {
@@ -20,7 +21,9 @@ public class PublishSubscribeExample {
       startPromise.complete();
       vertx.setPeriodic(2000, id -> {
         LOG.debug("Sending message...");
-        vertx.eventBus().publish(Publisher.class.getName(), "Sending a message");
+        JsonObject json = new JsonObject()
+          .put("message", "Hello!");
+        vertx.eventBus().publish(Publisher.class.getName(), json);
       });
     }
   }
