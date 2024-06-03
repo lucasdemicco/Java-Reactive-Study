@@ -1,4 +1,4 @@
-package com.miccolu.udemy.vertx_starter.eventbus;
+package com.miccolu.udemy.vertx_starter.eventbus.requestresponse;
 
 import com.miccolu.udemy.vertx_starter.eventbus.exampleClass.RequestVerticle;
 import com.miccolu.udemy.vertx_starter.eventbus.exampleClass.ResponseVerticle;
